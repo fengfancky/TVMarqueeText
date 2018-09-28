@@ -3,8 +3,10 @@ package cn.fengfancky.tvmarqueetext;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
@@ -18,6 +20,7 @@ import android.widget.TextView;
 public class TVMarqueeTextView extends FrameLayout {
 
     private TextView firstText,secondText;
+    private FrameLayout text_content;
     private TranslateAnimation mMoveTextOut, mMoveTextIn;
     private Runnable mRunnable;
     private boolean isStop  = false;//动画是否停止
@@ -26,6 +29,7 @@ public class TVMarqueeTextView extends FrameLayout {
     private float mSpeed = 0.1f;//动画运动
     private float mTextSize = 14; //字体大小
     private int mTextColor; //字体颜色
+    private int mGravity; //文本显示位置
 
     public TVMarqueeTextView(Context context) {
         super(context);
@@ -46,6 +50,7 @@ public class TVMarqueeTextView extends FrameLayout {
         View view = LayoutInflater.from(context).inflate(R.layout.marquee_layout,this,true);
         firstText = view.findViewById(R.id.first_text);
         secondText = view.findViewById(R.id.second_text);
+        text_content = view.findViewById(R.id.text_content);
 
     }
 
@@ -56,16 +61,28 @@ public class TVMarqueeTextView extends FrameLayout {
         mDelayedTime = a.getInt(R.styleable.TVMarqueeTextView_mDelayedTime,1000);
         mSpace = a.getDimension(R.styleable.TVMarqueeTextView_mSpace,100);
         mSpeed = a.getFloat(R.styleable.TVMarqueeTextView_mSpeed,0.1f);
+        mGravity = a.getInt(R.styleable.TVMarqueeTextView_mGravity,0);
         a.recycle();
 
         View view = LayoutInflater.from(context).inflate(R.layout.marquee_layout,this,true);
         firstText = view.findViewById(R.id.first_text);
         secondText = view.findViewById(R.id.second_text);
+        text_content = view.findViewById(R.id.text_content);
 
         firstText.setTextSize(mTextSize);
         secondText.setTextSize(mTextSize);
         firstText.setTextColor(mTextColor);
         secondText.setTextColor(mTextColor);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        if (mGravity == 0){
+            layoutParams.gravity = Gravity.LEFT;
+        }else if (mGravity ==1){
+            layoutParams.gravity = Gravity.RIGHT;
+        }else {
+            layoutParams.gravity = Gravity.CENTER;
+        }
+        text_content.setLayoutParams(layoutParams);
+
     }
 
     public void setTVMarqueeText(String string){

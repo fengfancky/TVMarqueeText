@@ -7,6 +7,11 @@
         <attr name="mSpeed" format="float"/>
         <attr name="mTextSize" format="dimension"/>
         <attr name="mTextColor" format="color|reference"/>
+        <attr name="mGravity" >
+            <enum name="left" value="0"/>
+            <enum name="right" value="1"/>
+            <enum name="center" value="2"/>
+        </attr>
 
     </declare-styleable>
 

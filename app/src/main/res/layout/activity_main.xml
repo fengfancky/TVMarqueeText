@@ -8,7 +8,7 @@
 
     <cn.fengfancky.tvmarqueetext.TVMarqueeTextView
         android:id="@+id/text"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -22,7 +22,9 @@
         app:mDelayedTime="500"
         app:mSpace="200dp"
         app:mSpeed="0.1"
-        app:mTextColor="#FF333333" />
+        app:mTextColor="#FF333333"
+        app:mGravity="left"
+        android:background="@color/colorPrimary"/>
 
     <Button
         android:id="@+id/button"

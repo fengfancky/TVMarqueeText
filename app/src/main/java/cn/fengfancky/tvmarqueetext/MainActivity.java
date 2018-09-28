@@ -16,8 +16,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tvMarqueeTextView = findViewById(R.id.text);
+        tvMarqueeTextView.setmTextColor(getResources().getColor(R.color.colorAccent));
+        tvMarqueeTextView.setmTextSize(24);
         button = findViewById(R.id.button);
-        tvMarqueeTextView.setTVMarqueeText("Android是一种基于Linux的自由及开放源代码的操作系统，主要使用于移动设备，如智能手机和平板电脑，由Google公司和开放手机联盟领导及开发。尚未有统一中文名称，中国大陆地区较多人使用“安卓”或“安致”。Android操作系统最初由Andy Rubin开发，主要支持手机。");
+        tvMarqueeTextView.setTVMarqueeText("Android是一种基于Linux的自由及开放源代码的操作系统");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
