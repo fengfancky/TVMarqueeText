@@ -42,3 +42,9 @@
     
     mTextSize：字体大小
     
+    mGravity:文本显示位置，enum；
+    
+        left,居左；
+        right，居右；
+        center，居中；
+    
