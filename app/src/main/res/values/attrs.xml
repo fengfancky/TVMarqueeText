@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TVMarqueeTextView">
+
+        <attr name="mDelayedTime" format="integer"/>
+        <attr name="mSpace" format="dimension"/>
+        <attr name="mSpeed" format="float"/>
+        <attr name="mTextSize" format="dimension"/>
+        <attr name="mTextColor" format="color|reference"/>
+
+    </declare-styleable>
+
+</resources>
